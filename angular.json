@@ -17,6 +17,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "fileReplacements": [
+              {
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }
+            ],
             "outputPath": "dist/app-blog-api",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -30,9 +36,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -100,5 +110,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "fd9162b5-15f0-4075-b25b-9397f3fc9b5c"
   }
 }
