@@ -10,6 +10,12 @@ import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
 import {AuthInterceptor} from "./auth.interceptor";
+import { NewPostComponent } from './new-post/new-post.component';
+import { NewCategoryComponent } from './new-category/new-category.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoryComponent } from './category/category.component';
+import { CategorySelectComponent } from './category-select/category-select.component';
+import { CategoryOptionComponent } from './category-option/category-option.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +24,12 @@ import {AuthInterceptor} from "./auth.interceptor";
     PostComponent,
     NavComponent,
     LoginComponent,
+    NewPostComponent,
+    NewCategoryComponent,
+    CategoriesComponent,
+    CategoryComponent,
+    CategorySelectComponent,
+    CategoryOptionComponent,
   ],
   imports: [
     HttpClientModule,

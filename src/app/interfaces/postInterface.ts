@@ -6,4 +6,5 @@ export interface PostInterface {
   description: string,
   content: string,
   comment: CommentInterface[]
+  categoryId: number
 }

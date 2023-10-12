@@ -7,6 +7,7 @@ export class Post implements PostInterface{
   description: string;
   id: number;
   title: string;
+  categoryId: number;
 
   constructor() {
     this.comment = [];
@@ -14,6 +15,7 @@ export class Post implements PostInterface{
     this.description = '';
     this.id = 0;
     this.title = '';
+    this.categoryId = 0;
   }
 
 }
