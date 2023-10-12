@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <h3>Aggiungi Categoria</h3>
+  <form #f="ngForm">
+
+    <!--    LOGIN IF-->
+    <div>
+      <div class="mb-3">
+        <label class="form-label" for="name">Nome categoria</label>
+        <input type="text" class="form-control" [(ngModel)]="newCategory.name" name="name" id="name" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="description">Descrizione</label>
+        <input type="text" class="form-control" [(ngModel)]="newCategory.description" name="description" id="description" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <button (click)="createCategory()" class="btn btn-success" type="submit">
+        Crea Categoria
+      </button>
+    </div>
+  </form>
+</div>

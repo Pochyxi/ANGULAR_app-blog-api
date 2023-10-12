@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <form #f="ngForm">
+
+    <!--    LOGIN IF-->
+    <div>
+      <div class="mb-3">
+        <label class="form-label" for="title">TITOLO</label>
+        <input type="text" class="form-control" [(ngModel)]="newPost.title" name="title" id="title" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="description">Descrizione</label>
+        <input type="text" class="form-control" [(ngModel)]="newPost.description" name="description" id="description" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="description">Contenuto</label>
+        <input type="text" class="form-control" [(ngModel)]="newPost.content" name="contenuto" id="contenuto" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="description">Categoria</label>
+        <app-category-select
+          [options]="options"
+          [selectedOption]="opzioneSelezionata"
+          (optionSelected)="handleOptionSelected($event)">
+        </app-category-select>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <button (click)="createPost()" class="btn btn-success" type="submit">
+        Crea nuovo Post
+      </button>
+    </div>
+  </form>
+</div>

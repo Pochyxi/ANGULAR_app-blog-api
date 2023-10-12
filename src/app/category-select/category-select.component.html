@@ -1,0 +1,8 @@
+<select [ngModel]="selectedOption" (ngModelChange)="onSelect($event)">
+  <option [defaultSelected]="true" selected>
+    Seleziona una categoria
+  </option>
+  <option *ngFor="let option of options" [value]="option">
+    {{ option }}
+  </option>
+</select>
