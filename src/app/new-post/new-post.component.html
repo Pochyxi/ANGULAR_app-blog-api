@@ -1,36 +1,65 @@
-<div class="container-fluid">
+<div class="container-fluid text-center dark-theme">
+  <h3 class="text-center">
+    {{ post.id !== 0 ? "Modifica Post" : "Crea nuovo Post" }}
+  </h3>
   <form #f="ngForm">
-
     <!--    LOGIN IF-->
+    <div class="mb-3">
+      <label class="form-label" for="description">Categoria</label>
+      <app-category-select
+        [options]="options"
+        [selectedOption]="opzioneSelezionata"
+        (optionSelected)="handleOptionSelected($event)"
+      >
+      </app-category-select>
+    </div>
+
     <div>
-      <div class="mb-3">
-        <label class="form-label" for="title">TITOLO</label>
-        <input type="text" class="form-control" [(ngModel)]="newPost.title" name="title" id="title" required>
-      </div>
+      <label class="form-label" for="title">Titolo</label>
+      <input
+        class="form-control mb-3"
+        type="text"
+        [(ngModel)]="newPost.title"
+        name="title"
+        id="title"
+        required
+      />
 
       <div class="mb-3">
         <label class="form-label" for="description">Descrizione</label>
-        <input type="text" class="form-control" [(ngModel)]="newPost.description" name="description" id="description" required>
+        <input
+          class="form-control"
+          type="text"
+          [(ngModel)]="newPost.description"
+          name="description"
+          id="description"
+          required
+        />
       </div>
 
       <div class="mb-3">
-        <label class="form-label" for="description">Contenuto</label>
-        <input type="text" class="form-control" [(ngModel)]="newPost.content" name="contenuto" id="contenuto" required>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label" for="description">Categoria</label>
-        <app-category-select
-          [options]="options"
-          [selectedOption]="opzioneSelezionata"
-          (optionSelected)="handleOptionSelected($event)">
-        </app-category-select>
+        <label class="form-label" for="contenuto">Contenuto</label>
+        <textarea
+          class="form-control"
+          rows="10"
+          [(ngModel)]="newPost.content"
+          name="contenuto"
+          id="contenuto"
+          required
+        ></textarea>
       </div>
     </div>
 
     <div class="mb-3">
-      <button (click)="createPost()" class="btn btn-success" type="submit">
-        Crea nuovo Post
+      <button
+        (click)="post.id != 0 ? modifyPost() : createPost()"
+        mat-raised-button
+        class="{{
+          post.id == 0 ? 'button-success mb-3' : 'button-modifica mb-3'
+        }}"
+        type="submit"
+      >
+        {{ post.id != 0 ? "Modifica Post" : "Crea Post" }}
       </button>
     </div>
   </form>

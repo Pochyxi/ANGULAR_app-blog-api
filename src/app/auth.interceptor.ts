@@ -40,9 +40,14 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       tap(event => {
         // Se l'evento è una risposta HTTP e contiene l'intestazione X-XSRF-TOKEN
-        if (event instanceof HttpResponse && event.headers.has('X-XSRF-TOKEN')) {
-          const newXsrfToken = event.headers.get('X-XSRF-TOKEN');
-          localStorage.setItem('X-XSRF-TOKEN', newXsrfToken!);
+        if (event instanceof HttpResponse) {
+
+
+          // Aggiorna il token XSRF se presente
+          if (event.headers.has('X-XSRF-TOKEN')) {
+            const newXsrfToken = event.headers.get('X-XSRF-TOKEN');
+            localStorage.setItem('X-XSRF-TOKEN', newXsrfToken!);
+          }
         }
       })
     );

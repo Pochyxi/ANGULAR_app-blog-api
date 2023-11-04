@@ -1,1 +1,143 @@
 /* You can add global styles to this file, and also import other style files */
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tema scuro */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1c1c1e;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+h3 {
+  color: dodgerblue;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Container Generale */
+.container {
+  width: 90%;
+  margin: auto;
+  margin-top: 100px;
+  overflow: hidden;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@mixin transition($property, $duration, $timing) {
+  transition: $property $duration $timing;
+}
+
+.button {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  @include transition(all, 0.3s, ease-in-out);
+
+  i {
+      margin-right: 8px;
+  }
+
+  &:hover {
+      filter: brightness(1.1);
+  }
+
+  &:active {
+      filter: brightness(0.9);
+  }
+}
+
+.button-elimina {
+  background-color: #ce1515!important;
+  color: #ffffff!important;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: .7rem;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.button-modifica {
+  background-color: #1b1bb3!important;
+  color: #ffffff!important;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: .7rem;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+// il colore deve essere verde adatto ad un tema oscuro
+.button-success {
+  background-color: #0a740a!important;
+  color: #ffffff!important;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: .7rem;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.dark-theme {
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+
+  form {
+    .form-label {
+      color: #e0e0e0;
+    }
+
+    .form-control {
+      background-color: #4a4a4a;
+      color: #e0e0e0;
+      border-color: #555;
+
+      &:focus {
+        border-color: #888;
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+      }
+    }
+
+    button {
+      border-color: transparent;
+
+      &.button-success {
+        background-color: #28a745;
+        color: #2c2c2c;
+
+        &:hover {
+          background-color: darken(#28a745, 10%);
+        }
+      }
+
+      &.button-modifica {
+        background-color: #007bff;
+        color: #2c2c2c;
+
+        &:hover {
+          background-color: darken(#007bff, 10%);
+        }
+      }
+    }
+  }
+}

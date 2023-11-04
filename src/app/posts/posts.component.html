@@ -1,14 +1,25 @@
 <div class="container-fluid">
-    <app-categories></app-categories>
-    <app-new-category></app-new-category>
-  <div class="row">
-    <h3>Aggiungi Post</h3>
-    <app-new-post></app-new-post>
+  <div class="row justify-content-center">
+    <div class="col-12 text-center">
+      <button
+        mat-raised-button
+        class="{{ showAdmin ? 'button-elimina' : 'button-success' }}"
+        (click)="showAdmin = !showAdmin"
+      >
+        HUB Amministratore
+      </button>
+    </div>
+    <div *ngIf="showAdmin" class="col-md-6">
+      <app-new-category></app-new-category>
+      <app-categories></app-categories>
+    </div>
+    <div *ngIf="showAdmin" class="col-md-6">
+      <app-new-post></app-new-post>
+    </div>
   </div>
+
+  <div class="row"></div>
   <div class="row">
-    <h3>Lista dei post</h3>
-    <app-post *ngFor="let post of posts$.content"
-              [post-data]="post"
-    ></app-post>
+    <app-post *ngFor="let post of posts$.content" [post-data]="post"></app-post>
   </div>
 </div>
