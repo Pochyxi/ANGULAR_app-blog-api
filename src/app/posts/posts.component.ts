@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { PaginatedPostsInterface } from '../interfaces/paginatedPostsInterface';
 import { AuthService } from '../service/authService/auth.service';
 import { PostInterface } from '../interfaces/postInterface';
+import { CategoryService } from '../service/categoryService/category.service';
 
 @Component({
   selector: 'app-posts',
@@ -20,10 +21,12 @@ export class PostsComponent implements OnInit {
     last: false,
   };
   showAdmin: boolean = false;
+  roles: string[] = [];
 
   constructor(
     private postsService$: PostsService,
-    private auth$: AuthService
+    private auth$: AuthService,
+    private categories$: CategoryService
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +35,14 @@ export class PostsComponent implements OnInit {
     });
 
     this.postsService$.getPosts();
+
+    this.auth$.roles.subscribe((roles) => {
+      this.roles = roles;
+
+      console.log(this.roles);
+    });
+
+    this.categories$.getCategories();
   }
 
   showAdminPanel() {

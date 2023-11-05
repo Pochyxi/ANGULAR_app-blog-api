@@ -1,9 +1,8 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="col-12 text-center">
+    <div *ngIf="roles.includes('ROLE_ADMIN')" class="col-12 text-center">
       <button
-        mat-raised-button
-        class="{{ showAdmin ? 'button-elimina' : 'button-success' }}"
+        class="{{ showAdmin ? 'button-elimina' : 'button' }}"
         (click)="showAdmin = !showAdmin"
       >
         HUB Amministratore

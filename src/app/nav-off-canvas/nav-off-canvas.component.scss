@@ -1,0 +1,39 @@
+.button_nav_open {
+  background-color: #4a5e4a!important;
+  color: #ffffff!important;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: 700;
+  margin-left: 10px;
+  position: fixed;
+  top: 0;
+  left: -15px;
+  transition: left 0.5s ease-in-out;
+}
+
+// hover diventa arancione
+.button_nav_open:hover {
+  background-color: #0077ff!important;
+  color: #ffffff!important;
+  border-radius: 0px 20px 20px 0;
+  width: 100%;
+}
+
+.button_nav_open:active {
+  background-color: #00ff48!important;
+  color: #ffffff!important;
+  border-radius: 0px 20px 20px 0;
+  width: 100%;
+}
+
+.offcanvas {
+  background-color: #0077ff!important;
+  color: whitesmoke!important;
+}
+
+.link_active {
+  color: #ff8800!important;
+}
+
+

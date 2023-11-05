@@ -71,6 +71,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-size: .7rem;
   font-weight: 700;
   margin-left: 10px;
+  @include transition(all, 0.3s, ease-in-out);
+
+  i {
+      margin-right: 8px;
+  }
+
+  &:hover {
+      filter: brightness(1.1);
+  }
+
+  &:active {
+      filter: brightness(0.9);
+  }
 }
 
 .button-modifica {
@@ -83,6 +96,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-size: .7rem;
   font-weight: 700;
   margin-left: 10px;
+  @include transition(all, 0.3s, ease-in-out);
+
+  i {
+      margin-right: 8px;
+  }
+
+  &:hover {
+      filter: brightness(1.1);
+  }
+
+  &:active {
+      filter: brightness(0.9);
+  }
 }
 
 // il colore deve essere verde adatto ad un tema oscuro
@@ -96,6 +122,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-size: .7rem;
   font-weight: 700;
   margin-left: 10px;
+  @include transition(all, 0.3s, ease-in-out);
+
+  i {
+      margin-right: 8px;
+  }
+
+  &:hover {
+      filter: brightness(1.1);
+  }
+
+  &:active {
+      filter: brightness(0.9);
+  }
 }
 
 .dark-theme {

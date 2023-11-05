@@ -10,6 +10,7 @@ import { Post } from '../../classes/Post';
 import { PostsService } from '../service/postService/posts.service';
 import { CategoryService } from '../service/categoryService/category.service';
 import { CategoryInterface } from '../interfaces/categoryInterface';
+import { AuthService } from '../service/authService/auth.service';
 
 @Component({
   selector: 'app-post',
@@ -22,10 +23,12 @@ export class PostComponent implements OnInit, OnChanges {
   postCopy = new Post();
   categoryName: string | undefined = 'category name';
   categoryList: CategoryInterface[] = [];
+  roles: string[] = [];
 
   constructor(
     private posts$: PostsService,
-    private category$: CategoryService
+    private category$: CategoryService,
+    private auth$: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +39,10 @@ export class PostComponent implements OnInit, OnChanges {
           return category.id === this.post.categoryId;
         }
       )?.name;
+    });
+
+    this.auth$.roles.subscribe((roles) => {
+      this.roles = roles;
     });
   }
 

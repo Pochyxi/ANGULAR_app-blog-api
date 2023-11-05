@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="row justify-content-end">
+      <div *ngIf="roles.includes('ROLE_ADMIN')" class="row justify-content-end">
         <div class="col-12 text-end">
           <button
             mat-raised-button

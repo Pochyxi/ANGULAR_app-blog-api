@@ -1,0 +1,92 @@
+<button
+  class="button button_nav_open"
+  type="button"
+  data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasExample"
+  aria-controls="offcanvasExample"
+>
+  MENU
+</button>
+
+<div
+  class="offcanvas offcanvas-start"
+  tabindex="-1"
+  id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+      Blog front-end |
+      {{
+        roles.includes("ROLE_ADMIN")
+          ? userNameOrEmail + " | ADMIN"
+          : userNameOrEmail
+      }}
+    </h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="{{
+                activeLink === '/' ? 'nav-link link_active' : 'nav-link'
+              }}"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+              class="nav-link active"
+              aria-current="page"
+              href="#"
+              routerLink="/"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+              *ngIf="!isAuth"
+              class="{{
+                activeLink === '/login' ? 'nav-link link_active' : 'nav-link'
+              }}"
+              aria-current="page"
+              href="#"
+              routerLink="/login"
+              >LOGIN</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              *ngIf="isAuth"
+              (click)="logout()"
+              class="nav-link"
+              aria-current="page"
+              href="#"
+              >LOGOUT</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
